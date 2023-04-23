@@ -20,11 +20,11 @@ const questions = [
     choices: [
       new Choice({
         name: "Yes",
-        value: true
+        value: true,
       }),
       new Choice({
         name: "No",
-        value: false
+        value: false,
       }),
     ],
   }),
