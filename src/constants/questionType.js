@@ -10,12 +10,12 @@ const questionType = {
    * @public
    */
   input: "input",
-    /**
+  /**
    * The number type.
    * @type {string}
    * @public
    */
-    number: "number",
+  number: "number",
   /**
    * The confirm type.
    * @type {string}

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --coverage true --watchAll",
     "start": "node ./src/",
-    "dev": "nodemon -L src index.js"
+    "dev": "nodemon -L -I src index.js"
   },
   "repository": {
     "type": "git",

@@ -11,6 +11,13 @@ class Choice {
    */
   constructor(choice) {
     /**
+     * The name.
+     * @type {string}
+     * @public
+     */
+    this.name = choice.name;
+
+    /**
      * The value.
      * @type {number | string | object}
      * @public
