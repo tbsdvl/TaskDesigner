@@ -3,7 +3,7 @@ const prompt = require("./lib/prompt");
 const title = require("./lib/title");
 const { Question } = require("./models");
 
-title.displayTitle().then(() => {
+title.display().then(() => {
   const questions = [
     new Question({
       type: questionType.input,

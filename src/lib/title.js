@@ -1,7 +1,7 @@
 const figlet = require("figlet");
 
 module.exports = {
-  displayTitle: () => {
+  display: () => {
     return new Promise((resolve) => {
       figlet(
         "Work Designer",
