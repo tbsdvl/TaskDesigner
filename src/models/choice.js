@@ -6,7 +6,7 @@
  */
 class Choice {
   /**
-   *
+   * Initializes a new Choice.
    * @param {object} choice - The choice.
    */
   constructor(choice) {

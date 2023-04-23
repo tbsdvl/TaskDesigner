@@ -6,6 +6,7 @@
  */
 class Answer {
   /**
+   * Initializes a new Answer.
    * @param {object} - The answer.
    */
   constructor(answer) {
