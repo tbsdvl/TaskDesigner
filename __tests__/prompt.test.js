@@ -13,12 +13,12 @@ describe("prompt", () => {
     const questions = [
       new Question({
         type: questionType.input,
-        name: "input",
+        name: "myInput",
       }),
     ];
     const answers = [
       new Answer({
-        key: "input",
+        key: "myInput",
       }),
     ];
     const prompt = jest.fn().mockResolvedValue({ value: "test" });
