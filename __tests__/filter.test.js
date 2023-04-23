@@ -1,7 +1,10 @@
+const project = require("../src/constants/project");
 const filter = require("../src/lib/filter");
+const task = require("../src/lib/task");
+const errorMessage = require("../src/constants/errorMessage");
 describe("filter", () => {
   it("should successfully filter the addProject input", () => {
-    expect(filter.addProjectFilter(true)).toBeTruthy();
+    expect(filter.filterAddProject(true)).toBeTruthy();
   });
 
   it("should successfully exit the application", () => {
@@ -10,8 +13,16 @@ describe("filter", () => {
       .mockImplementation((number) => {
         throw new Error("process.exit: " + number);
       });
-    expect(() => filter.addProjectFilter(false)).toThrow();
+    expect(() => filter.filterAddProject(false)).toThrow();
     expect(mockExit).toHaveBeenCalledWith(1);
     mockExit.mockRestore();
+  });
+
+  it("should return an error message saying the project already exists", () => {
+    const myTask = task.createTask();
+    myTask.addProject(project.EAZ_APPLICATIONCORE);
+    expect(filter.filterProject(project.EAZ_APPLICATIONCORE, myTask)).toBe(
+      errorMessage.projectExists
+    );
   });
 });
