@@ -2,7 +2,7 @@ module.exports = {
     /**
      * Filters the addProject question's input.
      * @param {boolean} input The input.
-     * @returns {boolean | string} True if input is yes, exits the app if false.
+     * @returns {boolean | void} True if input is yes, exits the app if false.
      */
     addProjectFilter: (input) => {
         if (input && typeof input === "boolean") {
