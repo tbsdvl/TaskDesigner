@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const Question = require("../src/models/question");
 const Answer = require("../src/models/answer");
+const Choice = require("../src/models/choice");
 const questionType = require("../src/constants/questionType.constants");
 describe("prompt", () => {
   it("should create a new prompt", () => {
@@ -13,6 +14,11 @@ describe("prompt", () => {
       new Question({
         type: questionType.input,
         name: "myInput",
+        choices: [
+          new Choice({
+            value: true,
+          }),
+        ],
       }),
     ];
     const answers = [
