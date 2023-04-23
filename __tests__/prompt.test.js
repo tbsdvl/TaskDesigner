@@ -5,8 +5,7 @@ const questionType = require("../src/constants/questionType.constants");
 describe("prompt", () => {
   it("should create a new prompt", () => {
     const prompt = inquirer.createPromptModule();
-    expect(prompt).not.toBeNull();
-    expect(prompt).not.toBeUndefined();
+    expect(prompt).toBeTruthy();
   });
 
   it("should create a new prompt with questions and answers", async () => {
