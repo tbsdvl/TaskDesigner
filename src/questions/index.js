@@ -32,7 +32,7 @@ const questions = [
   new Question({
     type: questionType.list,
     name: "projects",
-    message: "Select a project",
+    message: "Select a project: ",
     filter: filter.filterProject,
     choices: [
       new Choice({
