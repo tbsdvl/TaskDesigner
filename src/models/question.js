@@ -1,3 +1,4 @@
+const Choice = require('./choice');
 /**
  * Represents a question.
  * @class

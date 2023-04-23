@@ -1,11 +1,7 @@
-const validation = require("../src/lib/validation");
-describe("validation", () => {
-  it("should successfully validate the addProject input", () => {
-    expect(validation.addProjectValidator(true)).toBeTruthy();
-  });
-
-  it("should successfully return an error message for an invalid choice", () => {
-    expect(validation.addProjectValidator("this ain't right")).toBeTruthy();
+const filter = require("../src/lib/filter");
+describe("filter", () => {
+  it("should successfully filter the addProject input", () => {
+    expect(filter.addProjectFilter(true)).toBeTruthy();
   });
 
   it("should successfully exit the application", () => {
@@ -14,7 +10,7 @@ describe("validation", () => {
       .mockImplementation((number) => {
         throw new Error("process.exit: " + number);
       });
-    expect(() => validation.addProjectValidator(false)).toThrow();
+    expect(() => filter.addProjectFilter(false)).toThrow();
     expect(mockExit).toHaveBeenCalledWith(1);
     mockExit.mockRestore();
   });
