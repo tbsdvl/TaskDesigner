@@ -36,9 +36,9 @@ const questions = [
   }),
   new Question({
     type: questionType.list,
-    name: "project",
+    name: "projects",
     message: "Select a project",
-    filter: filter.filterProject(data, currentTask),
+    filter: filter.filterProject,
     choices: [
       new Choice({
         name: project.EAZ_APPLICATIONCORE,

@@ -25,4 +25,11 @@ describe("filter", () => {
       errorMessage.projectExists
     );
   });
+
+  it("should successfully add the project to the task", () => {
+    const myTask = task.createTask();
+    expect(
+      filter.filterProject(project.EAZ_APPLICATIONCORE_TESTS, myTask)
+    ).toBeUndefined();
+  });
 });
