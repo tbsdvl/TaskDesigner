@@ -2,11 +2,6 @@ const { Question, Choice } = require("../models");
 const questionType = require("../constants/questionType");
 const project = require("../constants/project");
 const filter = require("../lib/filter");
-const task = require('../lib/task');
-
-// init a new task
-const currentTask = task.createTask();
-
 const questions = [
   new Question({
     type: questionType.input,

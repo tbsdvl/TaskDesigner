@@ -21,14 +21,14 @@ module.exports = {
    * @param {Task} task The task.
    */
   filterProject: (project, task) => {
-    if (!task?.projects) {
-      task.projects = {
-        [project]: project,
-      };
-    } else if (task?.projects[project]) {
+    if (task.projects && task.projects[project]) {
       return errorMessage.projectExists;
-    } else {
+    } else if (task.projects) {
       task.projects[project] = project;
     }
+
+    task.projects = {
+      [project]: project,
+    };
   },
 };
