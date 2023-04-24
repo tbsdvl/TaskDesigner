@@ -9,14 +9,12 @@ const app = async () => {
   await title.display();
   await designer.displayStartPrompt();
 
-  // init a new task
   const taskPromptAnswers = await designer.getTaskPromptAnswers();
   const newTask = task.createTask({
     summary: taskPromptAnswers.summary,
     branch: taskPromptAnswers.branch,
   });
 
-  // create a new project prompt
   const projectPromptAnswers = await designer.createProjectPrompt();
   if (newTask.projects[projectPromptAnswers.project]) {
     // log an error message
