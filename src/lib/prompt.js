@@ -7,7 +7,7 @@ module.exports = {
    * @param {Answer[]} answers The list of answers.
    * @returns {Promise} A promise if the prompt is created successfully.  
    */
-  createPrompt: (questions, answers = null) => {
+  createPrompt: async (questions, answers = null) => {
     return inquirer.createPromptModule()(questions, answers);
   },
 };

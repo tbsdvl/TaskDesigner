@@ -8,7 +8,21 @@ class Task {
   /**
    * Initializes a new task.
    */
-  constructor() {
+  constructor(task) {
+    /**
+     * The summary.
+     * @type {string}
+     * @public
+     */
+    this.summary = task.summary;
+
+    /**
+     * The branch.
+     * @type {string}
+     * @public
+     */
+    this.branch = task.branch;
+
     /**
      * The projects.
      * @type {object}
@@ -33,6 +47,9 @@ class Task {
    * @public
    */
   addProject(project) {
+    if (this.getProjects[project]) {
+      return;
+    }
     this.getProjects[project] = project;
   }
 }
