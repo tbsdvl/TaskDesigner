@@ -15,7 +15,7 @@ const app = async () => {
     branch: taskPromptAnswers.branch,
   });
 
-  const projectPromptAnswers = await designer.createProjectPrompt();
+  const projectPromptAnswers = await designer.getProjectPromptAnswers();
   if (newTask.projects[projectPromptAnswers.project]) {
     // log an error message
     console.log("Project already exists in the task.");
