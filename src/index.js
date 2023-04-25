@@ -26,7 +26,9 @@ const app = async () => {
       newTask.addProject(projectPromptAnswers.project);
     }
 
-    await designer.getDirectoriesPromptAnswer();
+    const parentDirectoryPromptAnswer = await designer.getParentDirectoryPromptAnswer();
+    newTask.parentDirectory = parentDirectoryPromptAnswer.parentDirectory;
+    
     const directoriesPromptAnswers = await designer.getDirectoriesPromptAnswers();
     if (directoriesPromptAnswers.directories.length > 0) {
       newTask.addDirectories(directoriesPromptAnswers.directories);

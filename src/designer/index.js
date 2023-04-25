@@ -25,7 +25,7 @@ module.exports = {
    * Gets the parent directory prompt's answer.
    * @returns {Promise} A resolved promise containing the answer from the parent directory prompt.
    */
-  getDirectoriesPromptAnswer: async () => await prompt.createParentDirectoryPrompt(),
+  getParentDirectoryPromptAnswer: async () => await prompt.createParentDirectoryPrompt(),
   /**
    * Gets the directories prompt's answers.
    * @returns

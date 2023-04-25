@@ -31,6 +31,13 @@ class Task {
     this.projects = {};
 
     /**
+     * The parent directory.
+     * @type {string}
+     * @public
+     */
+    this.parentDirectory;
+
+    /**
      * The directories.
      * @type {String[]}
      * @public
