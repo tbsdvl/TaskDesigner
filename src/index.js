@@ -30,12 +30,11 @@ const app = async () => {
 
     if (projectPromptAnswers.addProject) {
       continue;
-    } else {
-      break;
     }
+    break;
   }
 
-  console.log('Here');
+  console.log("Here");
 };
 
 app();
