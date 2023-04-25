@@ -20,7 +20,7 @@ module.exports = {
    * Gets the project prompt's answers.
    * @returns {Promise} A resolved promise containing the answers from the project prompt.
    */
-  getProjectPromptAnswers: async () => await prompt.createProjectPrompt(),
+  getProjectPromptAnswer: async () => await prompt.createProjectPrompt(),
   /**
    * Gets the parent directory prompt's answer.
    * @returns {Promise} A resolved promise containing the answer from the parent directory prompt.

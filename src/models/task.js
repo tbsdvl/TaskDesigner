@@ -29,20 +29,6 @@ class Task {
      * @public
      */
     this.projects = {};
-
-    /**
-     * The parent directory.
-     * @type {string}
-     * @public
-     */
-    this.parentDirectory;
-
-    /**
-     * The directories.
-     * @type {String[]}
-     * @public
-     */
-    this.directories = [];
   }
 
   /**
@@ -55,36 +41,16 @@ class Task {
   }
 
   /**
-   * Gets the directories.
-   * @returns {String[]} The directories.
-   * @public
-   */
-  get getDirectories() {
-    return this.directories;
-  }
-
-  /**
    * Adds a project.
    * @param {string} project The project.
    * @returns {void}
    * @public
    */
   addProject(project) {
-    if (this.getProjects[project]) {
+    if (this.getProjects[project.name]) {
       return;
     }
-    this.getProjects[project] = project;
-  }
-
-  /**
-   * Adds a list of directories.
-   * @param {String[]} project The list of directories.
-   * @returns {void}
-   * @public
-   */
-  addDirectories(directories) {
-    // Update to filter out duplicates
-    this.directories = directories;
+    this.getProjects[project.name] = project;
   }
 }
 

@@ -5,7 +5,7 @@ module.exports = {
    * @returns {string} The task template string.
    */
   createTaskTemplate: (task) => {
-    const template = 
+    let template = 
 `
 ### Summary:
 ${task.summary}
@@ -13,6 +13,14 @@ ${task.summary}
 ### Branch:
 ${task.branch}
 `;
+
+for (const project in task.getProjects) {
+    const projectTemplate = 
+`
+# ${project}
+`;
+    template = template.concat(projectTemplate);
+}
     return template;
   },
 };
