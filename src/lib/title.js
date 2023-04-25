@@ -8,7 +8,7 @@ module.exports = {
   display: async () => {
     return new Promise((resolve) => {
       figlet(
-        "Work Designer",
+        "Task Designer",
         {
           font: "Doom",
         },

@@ -54,21 +54,4 @@ module.exports = [
       }),
     ],
   }),
-  // Add a question to get the parent directory
-  // Add a question to get the types of required directories
-  new Question({
-    type: questionType.list,
-    name: "addProject",
-    message: "Add a new project?",
-    choices: [
-      new Choice({
-        name: "Yes",
-        value: true,
-      }),
-      new Choice({
-        name: "No",
-        value: false,
-      }),
-    ],
-  }),
 ];

@@ -29,15 +29,31 @@ class Task {
      * @public
      */
     this.projects = {};
+
+    /**
+     * The directories.
+     * @type {String[]}
+     * @public
+     */
+    this.directories = [];
   }
 
   /**
-   * Gets the task's projects.
-   * @returns {object} The task's projects.
+   * Gets the projects.
+   * @returns {object} The projects.
    * @public
    */
   get getProjects() {
     return this.projects;
+  }
+
+  /**
+   * Gets the directories.
+   * @returns {String[]} The directories.
+   * @public
+   */
+  get getDirectories() {
+    return this.directories;
   }
 
   /**
@@ -51,6 +67,17 @@ class Task {
       return;
     }
     this.getProjects[project] = project;
+  }
+
+  /**
+   * Adds a list of directories.
+   * @param {String[]} project The list of directories.
+   * @returns {void}
+   * @public
+   */
+  addDirectories(directories) {
+    // Update to filter out duplicates
+    this.directories = directories;
   }
 }
 

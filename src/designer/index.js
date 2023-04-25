@@ -15,15 +15,25 @@ module.exports = {
    * Gets the task prompt's answers.
    * @returns {Promise} A resolved promise containing the answers from the task prompt.
    */
-  getTaskPromptAnswers: async () => {
-    const taskPrompt = await prompt.createTaskPrompt();
-    if (!taskPrompt.summary && !taskPrompt.branch) {
-    }
-    return taskPrompt;
-  },
+  getTaskPromptAnswers: async () => await prompt.createTaskPrompt(),
   /**
    * Gets the project prompt's answers.
-   * @returns {Promise} A resolved promise containig the answers from the project prompt.
+   * @returns {Promise} A resolved promise containing the answers from the project prompt.
    */
   getProjectPromptAnswers: async () => await prompt.createProjectPrompt(),
+  /**
+   * Gets the parent directory prompt's answer.
+   * @returns {Promise} A resolved promise containing the answer from the parent directory prompt.
+   */
+  getDirectoriesPromptAnswer: async () => await prompt.createParentDirectoryPrompt(),
+  /**
+   * Gets the directories prompt's answers.
+   * @returns
+   */
+  getDirectoriesPromptAnswers: async () => await prompt.createDirectoriesPrompt(),
+  /**
+   * Gets the add project prompt's answer.
+   * @returns {Promise} A resolved promise containing the answer from the add project prompt.
+   */
+  getAddProjectAnswer: async () => await prompt.createAddProjectPrompt(),
 };

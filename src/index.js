@@ -21,17 +21,23 @@ const app = async () => {
       console.log("Project already exists in the task.");
       // add handling to allow users to overwrite the project in the task
       // or continue to add a new task
+      // overwrite project prompt
     } else {
       newTask.addProject(projectPromptAnswers.project);
     }
 
-    if (projectPromptAnswers.addProject) {
+    await designer.getDirectoriesPromptAnswer();
+    const directoriesPromptAnswers = await designer.getDirectoriesPromptAnswers();
+    if (directoriesPromptAnswers.directories.length > 0) {
+      newTask.addDirectories(directoriesPromptAnswers.directories);
+    }
+
+    const addProjectPromptAnswer = await designer.getAddProjectAnswer();
+    if (addProjectPromptAnswer.addProject) {
       continue;
     }
     break;
   }
-
-  console.log("Here");
 };
 
 app();
