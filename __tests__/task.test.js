@@ -7,7 +7,7 @@ describe("task", () => {
       summary: "test",
       branch: "master",
     });
-    newTask.addProject(project.EAZ_APPLICATIONCORE);
+    newTask.addProject({ name: project.EAZ_APPLICATIONCORE });
     expect(newTask.getProjects[project.EAZ_APPLICATIONCORE]).toBeTruthy();
   });
 
@@ -16,7 +16,7 @@ describe("task", () => {
       summary: "test",
       branch: "master",
     });
-    newTask.addProject(project.EAZ_APPLICATIONCORE);
-    expect(newTask.addProject(project.EAZ_APPLICATIONCORE)).toBeUndefined();
+    newTask.addProject({ name: project.EAZ_APPLICATIONCORE });
+    expect(newTask.addProject({ name: project.EAZ_APPLICATIONCORE })).toBeUndefined();
   });
 });

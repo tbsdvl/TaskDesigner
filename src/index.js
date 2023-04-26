@@ -2,6 +2,7 @@ const title = require("./lib/title");
 const designer = require("./designer");
 const task = require("./lib/task");
 const { Project } = require("../src/models");
+const project = require("./lib/project");
 
 /**
  * Starts up Work Designer.
@@ -24,15 +25,12 @@ const app = async () => {
       // or continue to add a new task
       // overwrite project prompt
     } else {
-      // use a library to init project
-      newTask.addProject(new Project({
-        name: projectPromptAnswer.project
-      }));
+      newTask.addProject(project.createProject({ name: projectPromptAnswer.project }));
     }
 
     const parentDirectoryPromptAnswer = await designer.getParentDirectoryPromptAnswer();
     newTask.getProjects[projectPromptAnswer.project].parentDirectory = parentDirectoryPromptAnswer.parentDirectory;
-    
+
     const directoriesPromptAnswers = await designer.getDirectoriesPromptAnswers();
     if (directoriesPromptAnswers.directories.length > 0) {
       newTask.getProjects[projectPromptAnswer.project].addDirectories(directoriesPromptAnswers.directories);

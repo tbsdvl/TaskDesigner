@@ -1,3 +1,4 @@
+const Task = require("../models/task");
 module.exports = {
   /**
    * Creates a task template
@@ -14,10 +15,10 @@ ${task.summary}
 ${task.branch}
 `;
 
-for (const project in task.getProjects) {
+for (const key in task.getProjects) {
     const projectTemplate = 
 `
-# ${project}
+# ${task.getProjects[key].name}
 `;
     template = template.concat(projectTemplate);
 }
