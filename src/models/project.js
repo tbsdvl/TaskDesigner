@@ -1,3 +1,5 @@
+const Directory = require("./directory");
+
 /**
  * Represents a project.
  * @class
@@ -26,7 +28,7 @@ class Project {
 
     /**
      * The list of directories.
-     * @type {String[]}
+     * @type {Directory[]}
      * @public
      */
     this.directories = [];
@@ -34,7 +36,7 @@ class Project {
 
   /**
    * Gets the directories.
-   * @returns {String[]} The directories.
+   * @returns {Directory[]} The directories.
    * @public
    */
   get getDirectories() {
@@ -43,7 +45,7 @@ class Project {
 
   /**
    * Adds a list of directories.
-   * @param {String[]} project The list of directories.
+   * @param {Directory[]} directories The list of directories.
    * @returns {void}
    * @public
    */

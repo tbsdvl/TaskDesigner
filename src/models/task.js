@@ -1,3 +1,5 @@
+const Project = require("./project");
+
 /**
  * Represents a task
  * @class
@@ -42,7 +44,7 @@ class Task {
 
   /**
    * Adds a project.
-   * @param {string} project The project.
+   * @param {Project} project The project.
    * @returns {void}
    * @public
    */
