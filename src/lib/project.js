@@ -1,4 +1,4 @@
-const Project = require("../models/project");
+const { Project } = require("../models");
 
 module.exports = {
   /**
@@ -6,7 +6,5 @@ module.exports = {
    * @param {object} project The project.
    * @returns {Project} A project.
    */
-  createProject: (project) => {
-    return new Project(project);
-  },
+  createProject: (project) => new Project(project),
 };

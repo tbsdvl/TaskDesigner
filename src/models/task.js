@@ -1,4 +1,5 @@
 const Project = require("./project");
+const project = require("../lib/project");
 
 /**
  * Represents a task
@@ -27,7 +28,7 @@ class Task {
 
     /**
      * The projects.
-     * @type {object}
+     * @type {object.<Project>}
      * @public
      */
     this.projects = {};
@@ -35,7 +36,7 @@ class Task {
 
   /**
    * Gets the projects.
-   * @returns {object} The projects.
+   * @returns {object.<Project>} The projects.
    * @public
    */
   get getProjects() {
@@ -44,15 +45,15 @@ class Task {
 
   /**
    * Adds a project.
-   * @param {Project} project The project.
+   * @param {Project} newProject The project.
    * @returns {void}
    * @public
    */
-  addProject(project) {
-    if (this.getProjects[project.name]) {
+  addProject(newProject) {
+    if (this.getProjects[newProject.name]) {
       return;
     }
-    this.getProjects[project.name] = project;
+    this.getProjects[newProject.name] = project.createProject(newProject);
   }
 }
 
