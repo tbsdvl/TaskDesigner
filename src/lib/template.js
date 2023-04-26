@@ -18,7 +18,9 @@ ${task.branch}
 for (const key in task.getProjects) {
     const projectTemplate = 
 `
+
 # ${task.getProjects[key].name}
+
 `;
     template = template.concat(projectTemplate);
 }
