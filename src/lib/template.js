@@ -18,7 +18,6 @@ const projectTemplate =
 
 `;
 
-// get the offset for the index where we need to insert the directories in the list
 markdown.push(projectTemplate);
 if (markdown.length === 1) {
   task.getProjects[projectKeys[i]].getDirectories[0].start = markdown.length;
