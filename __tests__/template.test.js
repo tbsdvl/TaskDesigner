@@ -27,7 +27,9 @@ describe("template", () => {
     });
 
     newTask.addProject(project.createProject({ name: projectNames.EAZ_APPLICATIONCORE }));
+    newTask.addProject(project.createProject({ name: projectNames.EAZ_INFRASTRUCTURE }));
     newTask.getProjects[projectNames.EAZ_APPLICATIONCORE].addDirectories([directory.createDirectory({ name: directoryNames.MODELS })]);
+    newTask.getProjects[projectNames.EAZ_INFRASTRUCTURE].addDirectories([directory.createDirectory({ name: directoryNames.MODELS }), directory.createDirectory({ name: directoryNames.SERVICES })]);
     const taskTemplate = template.createTaskTemplate(newTask);
     expect(taskTemplate.includes(newTask.summary)).toBeTruthy();
     expect(taskTemplate.includes(newTask.branch)).toBeTruthy();
