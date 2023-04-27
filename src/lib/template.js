@@ -6,7 +6,6 @@ module.exports = {
    * @returns {string} The task template string.
    */
   createTaskTemplate: (task) => {
-// Iterate over each project and set up the project name literal
 const projectKeys = Object.keys(task.getProjects);
 let markdown = [];
 let directories = [];
