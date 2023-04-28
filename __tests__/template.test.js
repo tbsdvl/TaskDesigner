@@ -4,6 +4,7 @@ const projectNames = require("../src/constants/project");
 const project = require("../src/lib/project");
 const directory = require("../src/lib/directory");
 const directoryNames = require("../src/constants/directory");
+const crypto = require("crypto");
 
 describe("template", () => {
   it("should return a task template with a summary, branch, and projects", () => {
@@ -50,6 +51,6 @@ describe("template", () => {
     expect(taskTemplate.includes(newTask.summary)).toBeTruthy();
     expect(taskTemplate.includes(newTask.branch)).toBeTruthy();
     expect(taskTemplate.includes(newTask.projects[projectNames.EAZ_APPLICATIONCORE].name)).toBeTruthy();
-    expect(await template.createMarkDownFile(taskTemplate)).toBeTruthy();
+    expect(await template.createMarkDownFile(crypto.randomUUID(), taskTemplate)).toBeTruthy();
   });
 });

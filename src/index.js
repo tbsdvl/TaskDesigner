@@ -1,7 +1,6 @@
 const title = require("./lib/title");
 const designer = require("./designer");
 const task = require("./lib/task");
-const { Project } = require("../src/models");
 const project = require("./lib/project");
 
 /**
@@ -13,6 +12,7 @@ const app = async () => {
 
   const taskPromptAnswers = await designer.getTaskPromptAnswers();
   const newTask = task.createTask({
+    id: taskPromptAnswers.id,
     summary: taskPromptAnswers.summary,
     branch: taskPromptAnswers.branch,
   });

@@ -4,6 +4,12 @@ const validation = require("../lib/validation");
 
 module.exports = [
   new Question({
+    type: questionType.number,
+    name: "id",
+    message: "Enter the task id: ",
+    validate: validation.validateInput,
+  }),
+  new Question({
     type: questionType.input,
     name: "summary",
     message: "Enter a summary: ",

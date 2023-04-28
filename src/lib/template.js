@@ -1,5 +1,4 @@
 const fs = require("fs");
-const crypto = require("crypto");
 const Task = require("../models/task");
 require("dotenv").config();
 
@@ -50,7 +49,7 @@ template += projectTemplate.replace(',', '');
 
   return template;
   },
-  createMarkDownFile: async (template, path = null) => {
+  createMarkDownFile: async (id, template, path = null) => {
     path = path ? __dirname + path : __dirname + process.env.DEFAULT_PATH;
 
     if (!fs.existsSync(path)) {
@@ -58,6 +57,6 @@ template += projectTemplate.replace(',', '');
     }
 
     // update to use a task number instead of a random uuid
-    await writeMarkDownPromise(`${path}${crypto.randomUUID()}.md`, template);
+    await writeMarkDownPromise(`${path}${id}.md`, template);
   }
 };

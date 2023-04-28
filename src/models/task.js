@@ -13,6 +13,13 @@ class Task {
    */
   constructor(task) {
     /**
+     * The id.
+     * @type {string}
+     * @public
+     */
+    this.id = task.id;
+    
+    /**
      * The summary.
      * @type {string}
      * @public
