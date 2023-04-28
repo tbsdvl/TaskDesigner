@@ -1,4 +1,20 @@
+const fs = require("fs");
+const crypto = require("crypto");
 const Task = require("../models/task");
+require("dotenv").config();
+
+const writeMarkDownPromise = (path, template) => {
+  return new Promise((resolve, reject) => {
+    return fs.writeFile(path, template, (err, data) => {
+      if (err) {
+        reject(err);
+      }
+
+      resolve(data);
+    });
+});
+}
+
 module.exports = {
   /**
    * Creates a task template
@@ -6,43 +22,6 @@ module.exports = {
    * @returns {string} The task template string.
    */
   createTaskTemplate: (task) => {
-const projectKeys = Object.keys(task.getProjects);
-let markdown = [];
-let directories = [];
-for (let i = 0; i < projectKeys.length; i++) {
-const projectTemplate = 
-`
-
-# ${task.getProjects[projectKeys[i]].name}
-
-`;
-
-markdown.push(projectTemplate);
-if (markdown.length === 1) {
-  task.getProjects[projectKeys[i]].getDirectories[0].start = markdown.length;
-} else if (markdown.length > 1) {
-  task.getProjects[projectKeys[i]].getDirectories[0].start = markdown.length + task.getProjects[projectKeys[i - 1]].getDirectories.length;
-}
-
-directories = [...directories, ...task.getProjects[projectKeys[i]].getDirectories];
-}
-
-for (let i = 0; i < directories.length; i++) {
-  if (directories[i].start) {
-    markdown.push(markdown[markdown.length - 1]);
-    markdown[directories[i].start] = directories[i].name;
-  } 
-  
-  if (directories[i].index) {
-    markdown.push(markdown[markdown.length - 1]);
-    markdown[directories[i].index] = directories[i].name;
-  }
-
-  if (directories[i].start && !directories[i + 1].start) {
-    directories[i + 1].index = directories[i].start + 1;
-  }
-}
-
 let template = 
 `
 ### Summary:
@@ -52,10 +31,33 @@ ${task.summary}
 ${task.branch}
 `;
 
-for (const string of markdown) {
-  template += string;
+for (const project in task.getProjects) {
+const projectTemplate = 
+`
+
+# ${task.getProjects[project].name}
+
+${task.getProjects[project].getDirectories.map((directory) => {
+return `
+
+## ${directory.name}
+`
+})}
+`;
+
+template += projectTemplate.replace(',', '');
 }
 
   return template;
   },
+  createMarkDownFile: async (template, path = null) => {
+    path = path ? __dirname + path : __dirname + process.env.DEFAULT_PATH;
+
+    if (!fs.existsSync(path)) {
+      fs.mkdirSync(path, { recursive: true });
+    }
+
+    // update to use a task number instead of a random uuid
+    await writeMarkDownPromise(`${path}${crypto.randomUUID()}.md`, template);
+  }
 };

@@ -35,4 +35,21 @@ describe("template", () => {
     expect(taskTemplate.includes(newTask.branch)).toBeTruthy();
     expect(taskTemplate.includes(newTask.projects[projectNames.EAZ_APPLICATIONCORE].name)).toBeTruthy();
   });
+
+  it("should successfully generate a new task template and save the contents in a markdown file", async () => {
+    const newTask = task.createTask({
+      summary: "Test",
+      branch: "master",
+    });
+
+    newTask.addProject(project.createProject({ name: projectNames.EAZ_APPLICATIONCORE }));
+    newTask.addProject(project.createProject({ name: projectNames.EAZ_INFRASTRUCTURE }));
+    newTask.getProjects[projectNames.EAZ_APPLICATIONCORE].addDirectories([directory.createDirectory({ name: directoryNames.MODELS })]);
+    newTask.getProjects[projectNames.EAZ_INFRASTRUCTURE].addDirectories([directory.createDirectory({ name: directoryNames.MODELS }), directory.createDirectory({ name: directoryNames.SERVICES })]);
+    const taskTemplate = template.createTaskTemplate(newTask);
+    expect(taskTemplate.includes(newTask.summary)).toBeTruthy();
+    expect(taskTemplate.includes(newTask.branch)).toBeTruthy();
+    expect(taskTemplate.includes(newTask.projects[projectNames.EAZ_APPLICATIONCORE].name)).toBeTruthy();
+    expect(await template.createMarkDownFile(taskTemplate)).toBeTruthy();
+  });
 });
