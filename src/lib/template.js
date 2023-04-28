@@ -56,7 +56,6 @@ template += projectTemplate.replace(',', '');
       fs.mkdirSync(path, { recursive: true });
     }
 
-    // update to use a task number instead of a random uuid
     await writeMarkDownPromise(`${path}${id}.md`, template);
   }
 };
