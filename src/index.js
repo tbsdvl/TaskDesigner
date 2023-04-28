@@ -4,7 +4,7 @@ const task = require("./lib/task");
 const project = require("./lib/project");
 
 /**
- * Starts up Work Designer.
+ * Starts up Task Designer.
  */
 const app = async () => {
   await title.display();
