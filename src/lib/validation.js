@@ -11,4 +11,15 @@ module.exports = {
 
     return true;
   },
+  /**
+   * Validates an id.
+   * @param {number} id The id.
+   */
+  validateId: (id) => {
+    if (id === 0 || typeof id !== "number") {
+      return errorMessage.invalidId;
+    }
+
+    return true;
+  }
 };

@@ -36,26 +36,31 @@ const projectTemplate =
 
 # ${task.getProjects[project].name}
 
+### <b>${task.getProjects[project].parentDirectory}<b>
+
 ${task.getProjects[project].getDirectories.map((directory) => {
 return `
 
-## ${directory.name}
+## ${directory}
+
 `
 })}
 `;
 
-template += projectTemplate.replace(',', '');
+template += projectTemplate;
 }
 
-  return template;
+  return template = template.replaceAll(",", "");
   },
-  createMarkDownFile: async (id, template, path = null) => {
-    path = path ? __dirname + path : __dirname + process.env.DEFAULT_PATH;
+  createMarkDownFile: async (id, template) => {
+    let path = __dirname + process.env.MARKDOWN_PATH;
 
     if (!fs.existsSync(path)) {
       fs.mkdirSync(path, { recursive: true });
     }
 
-    await writeMarkDownPromise(`${path}${id}.md`, template);
+    const filePath = `${path}${id}.md`;
+    await writeMarkDownPromise(filePath, template);
+    return fs.existsSync(filePath);
   }
 };
