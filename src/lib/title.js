@@ -5,10 +5,10 @@ module.exports = {
    * Displays the title.
    * @returns A resolved promise if the title is logged in the console.
    */
-  display: () => {
+  display: async () => {
     return new Promise((resolve) => {
       figlet(
-        "Work Designer",
+        "Task Designer",
         {
           font: "Doom",
         },

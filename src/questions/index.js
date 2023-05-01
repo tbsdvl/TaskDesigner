@@ -1,33 +1,15 @@
-const questionType = require("../constants/questionType");
-const filter = require("../lib/filter");
-const { Question, Choice } = require("../models");
-const questions = [
-  new Question({
-    type: questionType.input,
-    name: "summary",
-    message: "Enter a summary: ",
-  }),
-  new Question({
-    type: questionType.input,
-    name: "branch",
-    message: "Enter the name of the branch: ",
-  }),
-  new Question({
-    type: questionType.list,
-    name: "addProject",
-    message: "Add a new project?",
-    filter: filter.addProjectFilter,
-    choices: [
-      new Choice({
-        name: "Yes",
-        value: true,
-      }),
-      new Choice({
-        name: "No",
-        value: false,
-      }),
-    ],
-  }),
-];
+const startQuestions = require("./start");
+const taskQuestions = require("./task");
+const projectQuestions = require("./project");
+const parentDirectoryQuestion = require("./parentDirectory");
+const directoriesQuestions = require("./directories");
+const addProjectQuestion = require("./addProject");
 
-module.exports = questions;
+module.exports = {
+  start: startQuestions,
+  task: taskQuestions,
+  project: projectQuestions,
+  parentDirectory: parentDirectoryQuestion,
+  directories: directoriesQuestions,
+  addProject: addProjectQuestion
+};
