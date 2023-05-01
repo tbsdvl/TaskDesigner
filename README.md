@@ -1,5 +1,5 @@
-# Work Designer
-Work Designer is a cli tool for generating task templates in markdown.
+# Task Designer
+Task Designer is a cli tool for generating task templates in markdown.
 
 ## Table of Contents
 - [Installation](#installation)
