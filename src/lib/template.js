@@ -50,7 +50,7 @@ return `
 template += projectTemplate;
 }
 
-  return template = template.replaceAll(",", "");
+  return template = template.replace(",", "");
   },
   createMarkDownFile: async (id, template) => {
     let path = __dirname + process.env.MARKDOWN_PATH;
