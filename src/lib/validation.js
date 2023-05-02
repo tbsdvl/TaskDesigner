@@ -16,7 +16,7 @@ module.exports = {
    * @param {number} id The id.
    */
   validateId: (id) => {
-    if (id === 0 || typeof id !== "number") {
+    if (id === 0 || typeof id !== "number" || id === NaN) {
       return errorMessage.invalidId;
     }
 
