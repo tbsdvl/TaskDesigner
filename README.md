@@ -6,7 +6,7 @@ Task Designer is a cli tool for generating task templates in markdown.
 - [StartUp](#startUp)
 
 # Installation
-You can clone the repository over HTTPS with Git by running the following command:
+You can clone the repository over HTTPS with `git` by running the following command:
 ```
 git clone https://github.com/tbsdvl/TaskDesigner.git
 ```
