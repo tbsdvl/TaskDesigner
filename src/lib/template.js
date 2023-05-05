@@ -23,15 +23,15 @@ module.exports = {
   createTaskTemplate: (task) => {
 let template = 
 `
-### Summary:
+### <b>Summary:</b>
 ${task.summary}
 
-### Branch:
-${task.branch}
+### <b>Branch:<b>
+<b>${task.branch}<b>
 `;
 
 for (const project in task.getProjects) {
-const projectTemplate = 
+const projectTemplate =
 `
 
 # ${task.getProjects[project].name}
@@ -50,7 +50,7 @@ return `
 template += projectTemplate;
 }
 
-  return template = template.replaceAll(",", "");
+  return template = template.replace(",", "");
   },
   createMarkDownFile: async (id, template) => {
     let path = __dirname + process.env.MARKDOWN_PATH;
