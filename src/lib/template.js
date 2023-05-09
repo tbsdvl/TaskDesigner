@@ -21,7 +21,7 @@ module.exports = {
    * @returns {string} The task template string.
    */
   createTaskTemplate: (task) => {
-let template = 
+let template =
 `
 ### <b>Summary:</b>
 ${task.summary}
