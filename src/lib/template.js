@@ -26,8 +26,8 @@ let template =
 ### <b>Summary:</b>
 ${task.summary}
 
-### <b>Branch:<b>
-<b>${task.branch}<b>
+### <b>Branch:</b>
+<b>${task.branch}</b>
 `;
 
 for (const project in task.getProjects) {
@@ -36,7 +36,7 @@ const projectTemplate =
 
 # ${task.getProjects[project].name}
 
-### <b>${task.getProjects[project].parentDirectory}<b>
+### <b>${task.getProjects[project].parentDirectory}</b>
 
 ${task.getProjects[project].getDirectories.map((directory) => {
 return `
