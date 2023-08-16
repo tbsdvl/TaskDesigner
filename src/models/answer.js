@@ -20,7 +20,7 @@ class Answer {
     /**
      * The value.
      * @type {boolean | string | number}
-     * 
+     *
      */
     this.value = answer.value;
   }

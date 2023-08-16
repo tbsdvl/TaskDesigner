@@ -18,7 +18,7 @@ class Task {
      * @public
      */
     this.id = task.id;
-    
+
     /**
      * The summary.
      * @type {string}
