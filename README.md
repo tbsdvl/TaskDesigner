@@ -17,7 +17,7 @@ npm i
 ```
 
 # StartUp
-Run the following command to start the app:
+Run the following command inside of a new terminal to start the app:
 ```
 npm run start
 ```
