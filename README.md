@@ -1,5 +1,5 @@
 # Task Designer
-Task Designer is a cli tool for generating task templates in markdown.
+Task Designer is a cli tool for generating Business One Stop task templates in markdown.
 
 ## Table of Contents
 - [Installation](#installation)
