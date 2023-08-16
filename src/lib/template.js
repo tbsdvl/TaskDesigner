@@ -21,13 +21,13 @@ module.exports = {
    * @returns {string} The task template string.
    */
   createTaskTemplate: (task) => {
-let template = 
+let template =
 `
 ### <b>Summary:</b>
 ${task.summary}
 
-### <b>Branch:<b>
-<b>${task.branch}<b>
+### <b>Branch:</b>
+<b>${task.branch}</b>
 `;
 
 for (const project in task.getProjects) {
@@ -36,7 +36,7 @@ const projectTemplate =
 
 # ${task.getProjects[project].name}
 
-### <b>${task.getProjects[project].parentDirectory}<b>
+### <b>${task.getProjects[project].parentDirectory}</b>
 
 ${task.getProjects[project].getDirectories.map((directory) => {
 return `
@@ -50,7 +50,7 @@ return `
 template += projectTemplate;
 }
 
-  return template = template.replace(",", "");
+  return template = template.replace(/,/g, "");
   },
   createMarkDownFile: async (id, template) => {
     let path = __dirname + process.env.MARKDOWN_PATH;
