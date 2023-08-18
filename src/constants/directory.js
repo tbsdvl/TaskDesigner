@@ -16,6 +16,10 @@ const directory = {
     CONTROLLERS: "Controllers",
     AREAS: "Areas",
     FILESTORAGE: "FileStorage",
+    GUARDS: "Guards",
+    ROUTES: "Routes",
+    MODULES: "Modules",
+    INSTALLATIONS: "Installations",
 };
 
 module.exports = directory;
