@@ -23,9 +23,6 @@ const app = async () => {
       const projectPromptAnswer = await designer.getProjectPromptAnswer();
       if (newTask.getProjects[projectPromptAnswer.project]) {
         console.log("Project already exists in the task.");
-        // add handling to allow users to overwrite the project in the task
-        // or continue to add a new task
-        // overwrite project prompt
       } else {
         newTask.addProject(project.createProject({ name: projectPromptAnswer.project }));
       }
